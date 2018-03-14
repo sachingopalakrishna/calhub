@@ -1,0 +1,57 @@
+{% load static%}
+{% include 'material/includes/material_css.html' %}
+    <script src="{% static 'material/js/jquery.js' %}"></script>
+    {% include 'material/includes/material_js.html' %}
+{% load material_form %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script>http://parsleyjs.org/dist/parsley.min.js</script>
+    <style>
+        .center-box{
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index:99;
+    margin:auto;
+    height:200px;
+
+    text-align:center;
+    line-height:200px;
+}
+    </style>
+</head>
+<body>
+
+<div class=" center-box" align="center" >
+    <p style="line-height:0px;">The number entered should be between 0 to 604</p>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="number" style="width:40%" name="index_value" min="0" max="604" placeholder="Enter a Number" width="40%" required>
+
+        <button type="submit" name="_submit" class="btn" >Submit</button>
+    </form>
+
+    {% if fib_value %}
+
+<p style="line-height:0px;width:100%"  >The value is {{fib_value}}</p>
+<p style="line-height:5px;" >Took {{time}} milliseconds to calculate</p>
+    {% endif %}
+    <div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>
